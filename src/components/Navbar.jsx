@@ -28,7 +28,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 function Navbar() {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize } =
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor } =
     useStateContext();
 
   // Aqui guarda en screenSize el ancho de la pantalla al inicio de la app
@@ -57,7 +57,7 @@ function Navbar() {
         title="Menu"
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
         icon={<AiOutlineMenu />}
-        color="blue"
+        color={currentColor}
       />
 
       <div className="flex">
@@ -65,7 +65,7 @@ function Navbar() {
           title="Cart"
           customFunc={() => handleClick('cart')}
           icon={<FiShoppingCart />}
-          color="blue"
+          color={currentColor}
         />
 
         <NavButton
@@ -73,7 +73,7 @@ function Navbar() {
           dotColor="#03C9D7"
           customFunc={() => handleClick('chat')}
           icon={<BsChatLeft />}
-          color="blue"
+          color={currentColor}
         />
 
         <NavButton
@@ -81,7 +81,7 @@ function Navbar() {
           dotColor="#03C9D7"
           customFunc={() => handleClick('notification')}
           icon={<RiNotification3Line />}
-          color="blue"
+          color={currentColor}
         />
 
         <TooltipComponent content="Profile" position="BottomCenter">

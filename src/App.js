@@ -28,7 +28,7 @@ import {
 import './App.css';
 
 const App = () => {
-  const { activeMenu } = useStateContext();
+  const { activeMenu, themeSettings,setThemeSettings, currentColor } = useStateContext();
   return (
     <div>
       <BrowserRouter>
@@ -38,7 +38,8 @@ const App = () => {
               <button
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
-                style={{ background: 'blue', borderRadius: '50%' }}
+                style={{ background: currentColor, borderRadius: '50%' }}
+                onClick={()=> setThemeSettings(true)}
               >
                 <FiSettings />
               </button>
@@ -58,8 +59,6 @@ const App = () => {
           )}
           {/* //sidebar */}
 
-          
-
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
               activeMenu ? 'md:ml-72' : 'flex flex-col'
@@ -73,6 +72,8 @@ const App = () => {
             {/* Navbar */}
 
             <div>
+              {themeSettings && <ThemeSettings />}
+
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<ECommerce />} />
