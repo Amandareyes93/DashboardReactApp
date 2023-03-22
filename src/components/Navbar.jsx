@@ -16,7 +16,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       type="button"
       onClick={customFunc}
       style={{ color }}
-      className="relative text-xl1 rounded-full p-3 nover:bg-light-gray"
+      className="relative text-xl rounded-full p-3 nover:bg-light-gray"
     >
       <span
         style={{ background: dotColor }}
@@ -28,7 +28,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 function Navbar() {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor } =
+  const {  setActiveMenu, isClicked, handleClick, screenSize, setScreenSize, currentColor } =
     useStateContext();
 
   // Aqui guarda en screenSize el ancho de la pantalla al inicio de la app
@@ -92,7 +92,7 @@ function Navbar() {
             <img src={avatar} alt="you smiling" className="rounded-full w-8 h-8" />
             <p>
               <span className="text-gray-400 text -14">Hi, </span>{' '}
-              <span className="text-gray-400 font-bold ml-1 text-14">Michael</span>
+              <span className="text-gray-400 font-bold ml-1 text-14">Amanda</span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>

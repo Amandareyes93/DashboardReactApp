@@ -6,17 +6,19 @@ import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy'
 import { useStateContext } from '../contexts/ContextProvider';
 
 function ECommerce() {
-
-  const {currentColor } = useStateContext();
+  const { currentColor } = useStateContext();
   return (
     <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center" style={{ 
-      backgroundImage: `url("https://c4.wallpaperflare.com/wallpaper/978/44/928/colorful-wallpaper-preview.jpg")` 
-    }}>
+        <div
+          className="bg-white dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-no-repeat bg-cover bg-center"
+          style={{
+            backgroundImage: `linear-gradient(0deg, #fdfdfd 10%, rgba(0, 0, 0, 0)50%), url("https://cdn.stocksnap.io/img-thumbs/960w/woman-business_NJP1LFA6EW.jpg")`,
+          }}
+        >
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-bold text-gray-400">Earnings</p>
+              <p className="font-bold ">Earnings</p>
               <p className="text-2xl"> $29.345,89</p>
             </div>
           </div>
@@ -89,15 +91,15 @@ function ECommerce() {
 
               <div className="mt-5">
                 {/* TO DO: fix and show the line graphic */}
-                  {/* <SparkLine
-                    currentColor="blue"
+                <SparkLine
+                    currentColor={currentColor}
                     id="line-sparkline"
                     type="Line"
                     height="80px"
                     width="250px"
                     data={SparklineAreaData}
-                    color="blue"
-                  /> */}
+                    color={currentColor}
+                  />
               </div>
               <div className="mt-10">
                 <Button color="white" bgColor={currentColor} text="Download Report" borderRadius="10px" />

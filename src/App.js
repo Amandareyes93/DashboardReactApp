@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
+import { Navbar, Sidebar, ThemeSettings } from './components';
 
 import { useStateContext } from './contexts/ContextProvider';
 
@@ -28,9 +28,9 @@ import {
 import './App.css';
 
 const App = () => {
-  const { activeMenu, themeSettings,setThemeSettings, currentColor } = useStateContext();
+  const { activeMenu, themeSettings,setThemeSettings, currentColor, currentMode } = useStateContext();
   return (
-    <div>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
@@ -60,7 +60,7 @@ const App = () => {
           {/* //sidebar */}
 
           <div
-            className={`dark:bg-main-bg bg-main-bg min-h-screen w-full ${
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
               activeMenu ? 'md:ml-72' : 'flex flex-col'
             }`}
           >
